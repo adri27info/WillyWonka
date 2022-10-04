@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-03-2022 a las 23:38:34
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.2
+-- Tiempo de generación: 04-10-2022 a las 20:03:19
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,11 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `willywonka`
 --
+
+create database willywonka;
+
+use willywonka;
+
 
 -- --------------------------------------------------------
 
@@ -127,7 +132,7 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `id_categoria`, `nombre_producto`, `precio_producto`, `unidades_producto`, `descripcion_producto`, `puntos_asignados`, `img_producto`) VALUES
-(1, 1, 'Chips Ahoy', 10, 99, 'Chips Ahoy', 10, 'chips-ahoy.jpg'),
+(1, 1, 'Chips Ahoy', 10, 100, 'Chips Ahoy', 10, 'chips-ahoy.jpg'),
 (2, 1, 'Barquillo Bicacao', 2.5, 10, 'Barquillo Bicacao', 20, 'barquillo-bicacao.jpg'),
 (3, 1, 'Bolsa Bombon', 2, 10, 'Bolsa Bombon', 20, 'bolsa-bombon.jpg'),
 (4, 1, 'Bombon de capsula', 1.8, 10, 'Bombon de capsula', 20, 'bombon-capsula-chocolate.jpg'),
@@ -439,8 +444,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_producto`, `id_conexion`, `id_bot`, `id_visitado`, `nombre`, `correo`, `password`, `imagen`, `puntos_totales`) VALUES
-(1, 1, 1, 1, 1, 1, 'Willy', 'willywonka.es.tienda@gmail.com', '674f3c2c1a8a6f90461e8a66fb5550ba', 'user.jpg', 0),
-(2, 2, 1, 1, 1, 0, 'Adrian', 'adri27informatica@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'foto.jpg', 0);
+(1, 1, 1, 1, 1, 1, 'Willy', 'willywonka.es.tienda@gmail.com', '674f3c2c1a8a6f90461e8a66fb5550ba', 'user.jpg', 10),
+(2, 2, 1, 1, 1, 0, 'Test', 'test@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'foto.jpg', 0);
 
 --
 -- Índices para tablas volcadas

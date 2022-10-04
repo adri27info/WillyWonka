@@ -9,6 +9,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     <title>WillyWonka</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <?php
     include("recursos/utilidades.php");
@@ -59,24 +61,25 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
             actualizarPuntosUsuario(10, $_SESSION["correo"]);
             actualizarUnidadesProducto("Chips Ahoy");
     ?>
-            <div class="container" id="container">
-                <div class="contenedorRegalo" id="contenedorRegalo">
-                    <div class="contenedorDatosRegalo">
-                        <div class="imagenRegalo">
-                            <img src="img/logo.png" alt="Logo WillyWonka">
-                            <span>!Enhorabuena!</span>
-                        </div>
-                        <div class="regalo">
-                            <img src="img/categorias/chocolates/chips-ahoy.jpg" alt="Chips Ahoy">
-                            <span>Por ser la primera vez que entras, has ganado este producto y 10 puntos.</span><br>
-                            <span>Recuerda que por cada compra, ganaras puntos mediante los cuales obtendras descuentos en los productos de la web</span>
-                        </div>
-                        <div class="confirmarRegalo">
-                            <button type="button" id="btnConfirmar" name="btnConfirmar" class="btnConfirmar">Aceptar</button>
-                        </div>
-                    </div>
+    <div class="container" id="container">
+        <div class="contenedorRegalo" id="contenedorRegalo">
+            <div class="contenedorDatosRegalo">
+                <div class="imagenRegalo">
+                    <img src="img/logo.png" alt="Logo WillyWonka">
+                    <span>!Enhorabuena!</span>
+                </div>
+                <div class="regalo">
+                    <img src="img/categorias/chocolates/chips-ahoy.jpg" alt="Chips Ahoy">
+                    <span>Por ser la primera vez que entras, has ganado este producto y 10 puntos.</span><br>
+                    <span>Recuerda que por cada compra, ganaras puntos mediante los cuales obtendras descuentos en los
+                        productos de la web</span>
+                </div>
+                <div class="confirmarRegalo">
+                    <button type="button" id="btnConfirmar" name="btnConfirmar" class="btnConfirmar">Aceptar</button>
                 </div>
             </div>
+        </div>
+    </div>
     <?php
         }
     }
@@ -231,7 +234,8 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
         <section class="opcionesPagina">
             <section class="contenedorOpciones">
                 <section class="opcionesIcono">
-                    <a href="cerrarSesion.php"> <img src="img/iconos/cerrar.png" alt="Cerrar sesion" id="iconoSesion"></a>
+                    <a href="cerrarSesion.php"> <img src="img/iconos/cerrar.png" alt="Cerrar sesion"
+                            id="iconoSesion"></a>
                     <img src="img/iconos/chat.png" alt="Chat" id="iconoChat">
                     <a href="cart.php"> <img src="img/iconos/carro.png" alt="Carrito"></a>
                 </section>
@@ -254,4 +258,5 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     <script src="js/chat.js"></script>
     <script src="js/regalo.js"></script>
 </body>
+
 </html>

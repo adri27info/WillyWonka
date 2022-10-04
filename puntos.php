@@ -9,6 +9,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     <title>WillyWonka</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <?php
     include("recursos/utilidades.php");
@@ -32,7 +34,8 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
             $puntosUsuario = buscarUsuarioRegistrado($_SESSION["correo"])[0]->puntos_totales;
             ?>
             <span class="tituloPuntos">Actualmente tienes <?php echo $puntosUsuario; ?> puntos. </span>
-            <span class="tituloPuntos"> Recuerda que para desbloquear descuentos tendras que llegar a los siguientes puntos:</span>
+            <span class="tituloPuntos"> Recuerda que para desbloquear descuentos tendras que llegar a los siguientes
+                puntos:</span>
             <div class="contenedorPorcentaje20">
                 <span>2000 puntos</span>
                 <?php
@@ -85,7 +88,8 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
         <section class="opcionesPagina">
             <section class="contenedorOpciones">
                 <section class="opcionesIcono">
-                    <a href="cerrarSesion.php"> <img src="img/iconos/cerrar.png" alt="Cerrar sesion" id="iconoSesion"></a>
+                    <a href="cerrarSesion.php"> <img src="img/iconos/cerrar.png" alt="Cerrar sesion"
+                            id="iconoSesion"></a>
                     <img src="img/iconos/chat.png" alt="Chat" id="iconoChat">
                     <a href="cart.php"> <img src="img/iconos/carro.png" alt="Carrito"></a>
                 </section>
@@ -110,4 +114,5 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     <script src="js/menu.js"></script>
     <script src="js/chat.js"></script>
 </body>
+
 </html>

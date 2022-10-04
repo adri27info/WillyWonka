@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>WillyWonka</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <?php
     include_once("recursos/utilidades.php");
@@ -38,7 +40,8 @@
                 ?>
             </div>
             <div class="formularioReestablecer">
-                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="formularioReestablecer">
+                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post"
+                    id="formularioReestablecer">
                     <input type="text" name="correo" placeholder="Introduce el correo para reestablecer la contraseña">
                     <div class="contenedor_icono_correo" id="contenedor_icono_correo">
                         <img src="img/iconos/correo.png" alt="Icono del correo">
@@ -58,4 +61,5 @@
     ?>
     <script src="js/verificacionReestablecer.js"></script>
 </body>
+
 </html>

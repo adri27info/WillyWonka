@@ -9,6 +9,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     <title>WillyWonka</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <?php
     include("recursos/utilidades.php");
@@ -44,16 +46,16 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     //Si existe la sesion del carrito, mostramos el carrito
     if (isset($_SESSION["carrito"])) {
     ?>
-        <div class="contenedorAncla">
-            <a href="#header"> <img src="img/iconos/subir.png" alt="Subir top"> </a>
-        </div>
-        <div class="contenedorGeneral" id="contenedorGeneral">
-            <?php
+    <div class="contenedorAncla">
+        <a href="#header"> <img src="img/iconos/subir.png" alt="Subir top"> </a>
+    </div>
+    <div class="contenedorGeneral" id="contenedorGeneral">
+        <?php
             include("recursos/header.php");
             ?>
-            <section class="carrito">
-                <span class='spanCarrito'>Carrito de la compra</span>
-                <?php
+        <section class="carrito">
+            <span class='spanCarrito'>Carrito de la compra</span>
+            <?php
                 $totalPagar = 0;
                 $unidadesTotales = 0;
                 foreach ($_SESSION["carrito"] as $key => $value) {
@@ -77,38 +79,39 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
                     $totalPagar += $value[1] * $unidadesTotales;
                 }
                 ?>
-                <div class="pagarProducto">
-                    <span>Total a pagar</span>
-                    <span><?php echo $totalPagar; ?>€</span>
-                    <form action="main.php" method="post" class="formularioPagarProducto">
-                        <input type="submit" value="Realizar pago" name="btnPago">
-                    </form>
-                    <form action="main.php" method="post" class="formularioVaciarCarrito">
-                        <input type="submit" value="Vaciar carro" name="btnVaciar">
-                    </form>
-                </div>
-            </section>
-            <section class="opcionesPagina">
-                <section class="contenedorOpciones">
-                    <section class="opcionesIcono">
-                        <a href="cerrarSesion.php"> <img src="img/iconos/cerrar.png" alt="Cerrar sesion" id="iconoSesion"></a>
-                        <img src="img/iconos/chat.png" alt="Chat" id="iconoChat">
-                        <a href="cart.php"> <img src="img/iconos/carro.png" alt="Carrito"></a>
-                    </section>
-                    <section class="chat" id="chat" name="chat">
-                        <div id="formularioChat" name="formularioChat" class="formularioChat">
-                            <textarea name="contenedorChat" id="contenedorChat" readonly></textarea>
-                            <input type="text" name="mensaje" id="mensajeChat" placeholder="Introduce tu mensaje">
-                            <span id="spanMensajeChat" class="spanMensajeChat">Conectate para enviar un mensaje</span>
-                            <button type="button" name="btnEnviar" id="btnEnviar">Enviar mensaje</button>
-                        </div>
-                    </section>
+            <div class="pagarProducto">
+                <span>Total a pagar</span>
+                <span><?php echo $totalPagar; ?>€</span>
+                <form action="main.php" method="post" class="formularioPagarProducto">
+                    <input type="submit" value="Realizar pago" name="btnPago">
+                </form>
+                <form action="main.php" method="post" class="formularioVaciarCarrito">
+                    <input type="submit" value="Vaciar carro" name="btnVaciar">
+                </form>
+            </div>
+        </section>
+        <section class="opcionesPagina">
+            <section class="contenedorOpciones">
+                <section class="opcionesIcono">
+                    <a href="cerrarSesion.php"> <img src="img/iconos/cerrar.png" alt="Cerrar sesion"
+                            id="iconoSesion"></a>
+                    <img src="img/iconos/chat.png" alt="Chat" id="iconoChat">
+                    <a href="cart.php"> <img src="img/iconos/carro.png" alt="Carrito"></a>
+                </section>
+                <section class="chat" id="chat" name="chat">
+                    <div id="formularioChat" name="formularioChat" class="formularioChat">
+                        <textarea name="contenedorChat" id="contenedorChat" readonly></textarea>
+                        <input type="text" name="mensaje" id="mensajeChat" placeholder="Introduce tu mensaje">
+                        <span id="spanMensajeChat" class="spanMensajeChat">Conectate para enviar un mensaje</span>
+                        <button type="button" name="btnEnviar" id="btnEnviar">Enviar mensaje</button>
+                    </div>
                 </section>
             </section>
-            <?php
+        </section>
+        <?php
             include("recursos/footer.php");
             ?>
-        </div>
+    </div>
     <?php
         //Si no existe la sesion del carrito, redirigimos
     } else {
@@ -120,4 +123,5 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     <script src="js/menu.js"></script>
     <script src="js/chat.js"></script>
 </body>
+
 </html>

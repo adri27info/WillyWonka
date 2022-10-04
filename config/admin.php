@@ -9,6 +9,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
     <title>WillyWonka</title>
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
+
 <body>
     <?php
     include("../recursos/utilidades.php");
@@ -34,16 +36,16 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
             $usuarios = obtenerUsuariosNoAdmins(2);
             if ($usuarios != false) {
             ?>
-                <div style="overflow-x:auto;">
-                    <table class="tablaCrud">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Contraseña</th>
-                            <th>Actualizar</th>
-                            <th>Borrar</th>
-                        </tr>
-                        <?php
+            <div style="overflow-x:auto;">
+                <table class="tablaCrud">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                        <th>Actualizar</th>
+                        <th>Borrar</th>
+                    </tr>
+                    <?php
                         $usuarios = obtenerUsuariosNoAdmins(2);
                         foreach ($usuarios as $key => $value) {
                             $rol = $value->id_rol != 1 ? "Usuario" : "Administrador";
@@ -56,8 +58,8 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
                             echo "</tr>";
                         }
                         ?>
-                    </table>
-                </div>
+                </table>
+            </div>
             <?php
             } else {
                 echo "<span style='font-weight: bolder; color: red;' text-align: center; display: block;> Actualmente no hay usuarios para visualizar </span>";
@@ -69,4 +71,5 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
     cerrarConexion();
     ?>
 </body>
+
 </html>

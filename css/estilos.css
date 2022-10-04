@@ -1439,6 +1439,7 @@ div.formularioChat span.spanMensajeChat {
 div.contenedorGeneral footer {
   width: 100%;
   background-color: rgb(12, 12, 12);
+  margin-top: 100px;
 }
 
 footer h3 {

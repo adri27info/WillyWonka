@@ -9,6 +9,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,9 +65,11 @@ include("recursos/utilidades.php");
 <?php
 cerrarConexion();
 ?>
+
 <body>
     <script src="js/jquery.min.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/chat.js"></script>
 </body>
+
 </html>

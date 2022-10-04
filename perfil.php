@@ -9,6 +9,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     <title>WillyWonka</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <?php
     include("recursos/utilidades.php");
@@ -67,60 +69,63 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
             }
         } else {
     ?>
-            <div class="contenedorAncla">
-                <a href="#header"> <img src="img/iconos/subir.png" alt="Subir top"> </a>
-            </div>
-            <div class="contenedorGeneral" id="contenedorGeneral">
-                <?php
+    <div class="contenedorAncla">
+        <a href="#header"> <img src="img/iconos/subir.png" alt="Subir top"> </a>
+    </div>
+    <div class="contenedorGeneral" id="contenedorGeneral">
+        <?php
                 include("recursos/header.php");
                 ?>
-                <div class="contenedorGeneralPerfil">
-                    <div class="contenedorEditPerfil">
-                        <div class="imagenEditPerfil">
-                            <span>Actualizar datos </span>
-                        </div>
-                        <div class="formularioEditarPerfil">
-                            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="formularioEditarPerfil" enctype="multipart/form-data">
-                                <input type="text" name="nombre" value="<?php echo $_SESSION["usuarioLogin"]; ?>">
-                                <input type="text" name="correo" value="<?php echo $_SESSION["correo"]; ?>">
-                                <input type="file" name="imagen" id="imagen" required>
-                                <input type="submit" value="Enviar" name="btnUpdate">
-                            </form><br>
-                            <span style="color: red">Error, para actualizar los datos debes rellenar tanto el nombre como el correo</span><br>
-                        </div>
-                        <div class="atras">
-                            <a href="ajustes.php">Volver atrás</a>
-                        </div>
-                    </div>
+        <div class="contenedorGeneralPerfil">
+            <div class="contenedorEditPerfil">
+                <div class="imagenEditPerfil">
+                    <span>Actualizar datos </span>
                 </div>
-                <?php
+                <div class="formularioEditarPerfil">
+                    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post"
+                        id="formularioEditarPerfil" enctype="multipart/form-data">
+                        <input type="text" name="nombre" value="<?php echo $_SESSION["usuarioLogin"]; ?>">
+                        <input type="text" name="correo" value="<?php echo $_SESSION["correo"]; ?>">
+                        <input type="file" name="imagen" id="imagen" required>
+                        <input type="submit" value="Enviar" name="btnUpdate">
+                    </form><br>
+                    <span style="color: red">Error, para actualizar los datos debes rellenar tanto el nombre como el
+                        correo</span><br>
+                </div>
+                <div class="atras">
+                    <a href="ajustes.php">Volver atrás</a>
+                </div>
+            </div>
+        </div>
+        <?php
                 include("recursos/footer.php");
                 ?>
-            </div>
-        <?php
+    </div>
+    <?php
         }
     } else {
         ?>
-        <div class="contenedorAncla">
-            <a href="#header"> <img src="img/iconos/subir.png" alt="Subir top"> </a>
-        </div>
-        <div class="contenedorGeneral" id="contenedorGeneral">
-            <?php
+    <div class="contenedorAncla">
+        <a href="#header"> <img src="img/iconos/subir.png" alt="Subir top"> </a>
+    </div>
+    <div class="contenedorGeneral" id="contenedorGeneral">
+        <?php
             include("recursos/header.php");
             ?>
-            <div class="contenedorGeneralPerfil">
-                <div class="contenedorEditPerfil">
-                    <div class="imagenEditPerfil">
-                        <span>Actualizar datos </span>
-                    </div>
-                    <div class="formularioEditarPerfil">
-                        <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="formularioEditarPerfil" enctype="multipart/form-data">
-                            <input type="text" name="nombre" value="<?php echo $_SESSION["usuarioLogin"]; ?>">
-                            <input type="text" name="correo" value="<?php echo $_SESSION["correo"]; ?>">
-                            <input type="file" name="imagen" id="imagen" required>
-                            <input type="submit" value="Enviar" name="btnUpdate">
-                        </form>
-                        <?php
+        <div class="contenedorGeneralPerfil">
+            <div class="contenedorEditPerfil">
+                <div class="imagenEditPerfil">
+                    <span>Actualizar datos </span>
+                </div>
+                <div class="formularioEditarPerfil">
+                    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post"
+                        id="formularioEditarPerfil" enctype="multipart/form-data">
+                        <input type="text" name="nombre" value="<?php echo $_SESSION["usuarioLogin"]; ?>">
+                        <input type="text" name="correo" value="<?php echo $_SESSION["correo"]; ?>">
+                        <input type="file" name="imagen" id="imagen" required>
+                        <input type="submit" value="Enviar" name="btnUpdate">
+                    </form>
+                    <?php
                         if (isset($_SESSION["imagenFake"]) && $_SESSION["imagenFake"] == false) {
                             echo "<span style='color: red;'> Error, la imagen es fake </span> <br>";
                             unset($_SESSION["imagenFake"]);
@@ -147,33 +152,34 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
                             }
                         }
                         ?>
-                    </div>
-                    <div class="atras">
-                        <a href="ajustes.php">Volver atrás</a>
-                    </div>
+                </div>
+                <div class="atras">
+                    <a href="ajustes.php">Volver atrás</a>
                 </div>
             </div>
-            <section class="opcionesPagina">
-                <section class="contenedorOpciones">
-                    <section class="opcionesIcono">
-                        <a href="cerrarSesion.php"> <img src="img/iconos/cerrar.png" alt="Cerrar sesion" id="iconoSesion"></a>
-                        <img src="img/iconos/chat.png" alt="Chat" id="iconoChat">
-                        <a href="cart.php"> <img src="img/iconos/carro.png" alt="Carrito"></a>
-                    </section>
-                    <section class="chat" id="chat" name="chat">
-                        <div id="formularioChat" name="formularioChat" class="formularioChat">
-                            <textarea name="contenedorChat" id="contenedorChat" readonly></textarea>
-                            <input type="text" name="mensaje" id="mensajeChat" placeholder="Introduce tu mensaje">
-                            <span id="spanMensajeChat" class="spanMensajeChat">Conectate para enviar un mensaje</span>
-                            <button type="button" name="btnEnviar" id="btnEnviar">Enviar mensaje</button>
-                        </div>
-                    </section>
+        </div>
+        <section class="opcionesPagina">
+            <section class="contenedorOpciones">
+                <section class="opcionesIcono">
+                    <a href="cerrarSesion.php"> <img src="img/iconos/cerrar.png" alt="Cerrar sesion"
+                            id="iconoSesion"></a>
+                    <img src="img/iconos/chat.png" alt="Chat" id="iconoChat">
+                    <a href="cart.php"> <img src="img/iconos/carro.png" alt="Carrito"></a>
+                </section>
+                <section class="chat" id="chat" name="chat">
+                    <div id="formularioChat" name="formularioChat" class="formularioChat">
+                        <textarea name="contenedorChat" id="contenedorChat" readonly></textarea>
+                        <input type="text" name="mensaje" id="mensajeChat" placeholder="Introduce tu mensaje">
+                        <span id="spanMensajeChat" class="spanMensajeChat">Conectate para enviar un mensaje</span>
+                        <button type="button" name="btnEnviar" id="btnEnviar">Enviar mensaje</button>
+                    </div>
                 </section>
             </section>
-            <?php
+        </section>
+        <?php
             include("recursos/footer.php");
             ?>
-        </div>
+    </div>
     <?php
     }
     cerrarConexion();
@@ -182,4 +188,5 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 1) {
     <script src="js/menu.js"></script>
     <script src="js/chat.js"></script>
 </body>
+
 </html>

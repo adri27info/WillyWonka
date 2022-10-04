@@ -9,6 +9,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +17,7 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
     <title>WillyWonka</title>
     <link rel="stylesheet" href="../../css/estilos.css">
 </head>
+
 <body>
     <?php
     include("../../recursos/utilidades.php");
@@ -24,17 +26,17 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
         $nombre = $_GET["nombre"];
         if (buscarUsuarioCriterios($id, $nombre) != false) {
     ?>
-            <div class="contenedorCrud" id="contenedorCrud">
-                <div class="info">
-                    <div class="imagen">
-                        <a href="../admin.php">
-                            <img src="../../img/logo.png" alt="Logo">
-                        </a>
-                    </div>
-                    <a href="../../cerrarSesion.php">Cerrar sesion</a>
-                </div>
-                <section class="borrar">
-                    <?php
+    <div class="contenedorCrud" id="contenedorCrud">
+        <div class="info">
+            <div class="imagen">
+                <a href="../admin.php">
+                    <img src="../../img/logo.png" alt="Logo">
+                </a>
+            </div>
+            <a href="../../cerrarSesion.php">Cerrar sesion</a>
+        </div>
+        <section class="borrar">
+            <?php
                     if (borrarUsuario($id, $nombre) != 0) {
                         echo "<span style='font-weight: bolder; color: green; text-align: center; display: block;'> Usuario borrado correctamente</span>";
                     } else {
@@ -42,8 +44,8 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
                     }
                     header("Refresh:3; url=../admin.php");
                     ?>
-                </section>
-            </div>
+        </section>
+    </div>
     <?php
         } else {
             header("Location: ../admin.php");
@@ -54,4 +56,5 @@ if (isset($_SESSION["rol"]) && $_SESSION["rol"] == 2) {
     cerrarConexion();
     ?>
 </body>
+
 </html>

@@ -3,6 +3,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@ session_start();
     <title>WillyWonka</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <?php
     include_once("recursos/utilidades.php");
@@ -17,12 +19,12 @@ session_start();
         if (isset($_SESSION["ran"])) {
             $codigoResultate = $_POST["cod_1"] . $_POST["cod_2"] . $_POST["cod_3"] . $_POST["cod_4"] . $_POST["cod_5"];
     ?>
-            <div class="contenedor">
-                <div class="contenedorVerificacionRegistro2">
-                    <div class="imagenVerificacionRegistro2">
-                        <img src="img/logo.png" alt="Logo WillyWonka">
-                    </div>
-                    <?php
+    <div class="contenedor">
+        <div class="contenedorVerificacionRegistro2">
+            <div class="imagenVerificacionRegistro2">
+                <img src="img/logo.png" alt="Logo WillyWonka">
+            </div>
+            <?php
                     if ($_SESSION["ran"] == $codigoResultate) {
                         //Realizar el registro del usuario a la bbdd
                         $idUsuario = registroUsuario(0, 2, 1, 1, 1, 0,  $_SESSION["usuario"], $_SESSION["correo"], $_SESSION["password"], "user.jpg", 0);
@@ -44,9 +46,9 @@ session_start();
                     echo "<span> Volviendo a la pagina principal ... </span>";
                     header("refresh:3;url=index.php");
                     ?>
-                </div>
-            </div>
-            <?php
+        </div>
+    </div>
+    <?php
         } else {
             header("registro.php");
         }
@@ -68,31 +70,32 @@ session_start();
             $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
             if (mail($correo, $asunto, $cuerpo, $headers)) {
             ?>
-                <div class="contenedor">
-                    <div class="contenedorVerificacionRegistro">
-                        <div class="imagenVerificacionRegistro">
-                            <img src="img/logo.png" alt="Logo WillyWonka">
-                        </div>
-                        <span>Por favor, introduce la combinación de numeros que se le ha enviado a su correo</span>
-                        <div class="formularioVerificacionRegistro">
-                            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="formularioVerificacionRegistro">
-                                <div class="contenedor_verificacion_usuario" id="contenedor_verificacion_usuario">
-                                    <input type="text" name="cod_1" maxlength="1" minlength="1">
-                                    <input type="text" name="cod_2" maxlength="1" minlength="1">
-                                    <input type="text" name="cod_3" maxlength="1" minlength="1">
-                                    <input type="text" name="cod_4" maxlength="1" minlength="1">
-                                    <input type="text" name="cod_5" maxlength="1" minlength="1">
-                                </div>
-                                <input type="submit" value="Enviar" name="btnVerificacionRegistro" id="btnVerificacionRegistro">
-                            </form>
-                        </div>
-                        <div class="registro">
-                            <span>¿Te has equivocado?</span>
-                            <a href="registro.php">Registrarse</a>
-                        </div>
+    <div class="contenedor">
+        <div class="contenedorVerificacionRegistro">
+            <div class="imagenVerificacionRegistro">
+                <img src="img/logo.png" alt="Logo WillyWonka">
+            </div>
+            <span>Por favor, introduce la combinación de numeros que se le ha enviado a su correo</span>
+            <div class="formularioVerificacionRegistro">
+                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post"
+                    id="formularioVerificacionRegistro">
+                    <div class="contenedor_verificacion_usuario" id="contenedor_verificacion_usuario">
+                        <input type="text" name="cod_1" maxlength="1" minlength="1">
+                        <input type="text" name="cod_2" maxlength="1" minlength="1">
+                        <input type="text" name="cod_3" maxlength="1" minlength="1">
+                        <input type="text" name="cod_4" maxlength="1" minlength="1">
+                        <input type="text" name="cod_5" maxlength="1" minlength="1">
                     </div>
-                </div>
-        <?php
+                    <input type="submit" value="Enviar" name="btnVerificacionRegistro" id="btnVerificacionRegistro">
+                </form>
+            </div>
+            <div class="registro">
+                <span>¿Te has equivocado?</span>
+                <a href="registro.php">Registrarse</a>
+            </div>
+        </div>
+    </div>
+    <?php
             } else {
                 echo "<p style='font-weight: bolder;'> Error al realizar el registro, por favor comprueba el correo introducido</p>";
                 header("Location: registro.php");
@@ -104,48 +107,49 @@ session_start();
         }
     } else {
         ?>
-        <div class="contenedor">
-            <div class="contenedorRegistro">
-                <div class="imagenRegistro">
-                    <img src="img/logo.png" alt="Logo WillyWonka">
-                    <span>Regístrate</span>
-                </div>
-                <div class="formularioRegistro">
-                    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="formularioRegistro">
-                        <input type="text" name="usuario" placeholder="Introduce tu nombre">
-                        <div class="contenedor_icono_usuario" id="contenedor_icono_usuario">
-                            <img src="img/iconos/user.png" alt="Icono de usuario">
-                            <span>Error (min 1 - max 30 caracteres) </span>
-                        </div>
-                        <input type="text" name="correo" placeholder="Introduce el correo">
-                        <div class="contenedor_icono_correo" id="contenedor_icono_correo">
-                            <img src="img/iconos/correo.png" alt="Icono del correo">
-                            <span>Error al escribir el correo </span>
-                        </div>
-                        <input type="password" name="password" placeholder="Introduce la password">
-                        <div class="contenedor_icono_password" id="contenedor_icono_password">
-                            <img src="img/iconos/password.png" alt="Icono de la password">
-                            <span>Error (min 4 - max 10 caracteres) </span>
-                        </div>
-                        <input type="submit" value="Enviar" name="btnRegistro" id="btnRegistro">
-                    </form>
-                    <?php
+    <div class="contenedor">
+        <div class="contenedorRegistro">
+            <div class="imagenRegistro">
+                <img src="img/logo.png" alt="Logo WillyWonka">
+                <span>Regístrate</span>
+            </div>
+            <div class="formularioRegistro">
+                <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="formularioRegistro">
+                    <input type="text" name="usuario" placeholder="Introduce tu nombre">
+                    <div class="contenedor_icono_usuario" id="contenedor_icono_usuario">
+                        <img src="img/iconos/user.png" alt="Icono de usuario">
+                        <span>Error (min 1 - max 30 caracteres) </span>
+                    </div>
+                    <input type="text" name="correo" placeholder="Introduce el correo">
+                    <div class="contenedor_icono_correo" id="contenedor_icono_correo">
+                        <img src="img/iconos/correo.png" alt="Icono del correo">
+                        <span>Error al escribir el correo </span>
+                    </div>
+                    <input type="password" name="password" placeholder="Introduce la password">
+                    <div class="contenedor_icono_password" id="contenedor_icono_password">
+                        <img src="img/iconos/password.png" alt="Icono de la password">
+                        <span>Error (min 4 - max 10 caracteres) </span>
+                    </div>
+                    <input type="submit" value="Enviar" name="btnRegistro" id="btnRegistro">
+                </form>
+                <?php
                     if (isset($_SESSION["usuario_registrado"])) {
                         echo "<span style='color: red;'> El correo introducido ya existe </span> <br>";
                         session_destroy();
                     }
                     ?>
-                </div>
-                <div class="login">
-                    <span>¿Tienes una cuenta?</span>
-                    <a href="index.php">Iniciar sesión</a>
-                </div>
+            </div>
+            <div class="login">
+                <span>¿Tienes una cuenta?</span>
+                <a href="index.php">Iniciar sesión</a>
             </div>
         </div>
+    </div>
     <?php
     }
     cerrarConexion();
     ?>
     <script src="js/verificacionRegistro.js"></script>
 </body>
+
 </html>

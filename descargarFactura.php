@@ -10,102 +10,104 @@ ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WillyWonka</title>
     <style>
-        /* ---------------------------------------------------- GENERALES  ---------------------------------------------------- */
+    /* ---------------------------------------------------- GENERALES  ---------------------------------------------------- */
 
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        body {
-            background-image: linear-gradient(#5d3895, #100127);
-            font-family: Arial, Helvetica, sans-serif;
-            background-repeat: no-repeat;
-        }
+    body {
+        background-image: linear-gradient(#5d3895, #100127);
+        font-family: Arial, Helvetica, sans-serif;
+        background-repeat: no-repeat;
+    }
 
-        div.contenedorGeneral {
-            width: 90%;
-            max-width: 1500px;
-            background-color: white;
-            margin: 5px auto;
-            min-height: 100vh;
-            min-width: 360px;
-            position: relative;
-            z-index: 1;
-        }
+    div.contenedorGeneral {
+        width: 90%;
+        max-width: 1500px;
+        background-color: white;
+        margin: 5px auto;
+        min-height: 100vh;
+        min-width: 360px;
+        position: relative;
+        z-index: 1;
+    }
 
-        /* ---------------------------------------------------- SECCION PDF FACTURACION ---------------------------------------------------- */
+    /* ---------------------------------------------------- SECCION PDF FACTURACION ---------------------------------------------------- */
 
-        div.contenedorGeneral section.mostrarDatosFacturas {
-            width: 100%;
-            padding: 20px;
-        }
+    div.contenedorGeneral section.mostrarDatosFacturas {
+        width: 100%;
+        padding: 20px;
+    }
 
-        section.mostrarDatosFacturas div.cabeceraFacturacion {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-content: center;
-        }
+    section.mostrarDatosFacturas div.cabeceraFacturacion {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+    }
 
-        div.cabeceraFacturacion h3.tituloCabeceraFactura {
-            text-decoration: underline;
-        }
+    div.cabeceraFacturacion h3.tituloCabeceraFactura {
+        text-decoration: underline;
+    }
 
-        div.cabeceraFacturacion div.imagenFacturacion {
-            width: 150px;
-            align-self: center;
-        }
+    div.cabeceraFacturacion div.imagenFacturacion {
+        width: 150px;
+        align-self: center;
+    }
 
-        div.imagenFacturacion img {
-            width: 100%;
-            vertical-align: top;
-        }
-
-
-        section.mostrarDatosFacturas h3 {
-            display: block;
-            margin: 70px 0px;
-        }
+    div.imagenFacturacion img {
+        width: 100%;
+        vertical-align: top;
+    }
 
 
-        section.mostrarDatosFacturas h3.tituloFactura {
-            text-decoration: underline;
-        }
+    section.mostrarDatosFacturas h3 {
+        display: block;
+        margin: 70px 0px;
+    }
 
-        section.mostrarDatosFacturas table.tablaFacturas {
-            width: 100%;
-            text-align: center;
-        }
 
-        table.tablaFacturas,
-        tr,
-        th,
-        td {
-            border: 3px solid black;
-            border-collapse: collapse;
-        }
+    section.mostrarDatosFacturas h3.tituloFactura {
+        text-decoration: underline;
+    }
 
-        table.tablaFacturas td {
-            width: 25%;
-        }
+    section.mostrarDatosFacturas table.tablaFacturas {
+        width: 100%;
+        text-align: center;
+    }
 
-        table.tablaFacturas td img {
-            width: 50%;
-            vertical-align: top;
-        }
+    table.tablaFacturas,
+    tr,
+    th,
+    td {
+        border: 3px solid black;
+        border-collapse: collapse;
+    }
+
+    table.tablaFacturas td {
+        width: 25%;
+    }
+
+    table.tablaFacturas td img {
+        width: 50%;
+        vertical-align: top;
+    }
     </style>
 </head>
+
 <body>
     <?php
     include("recursos/utilidades.php");
@@ -114,21 +116,23 @@ ob_start();
             $factura = obtenerFacturaHora($_SESSION["idUsuario"], $_POST["horaCompra"]);
             $decode = json_decode($factura[0]->json_carrito, true);
     ?>
-            <div class="contenedorGeneral" id="contenedorGeneral">
-                <section class="mostrarDatosFacturas">
-                    <div class="cabeceraFacturacion">
-                        <h3 class="tituloCabeceraFactura">Facturacion </h3>
-                    </div>
-                    <h3>Enviado a <?php echo $_SESSION["usuarioLogin"] . " en el dia " .  $decode[$_SESSION["idUsuario"]][0] . " / " . $decode[$_SESSION["idUsuario"]][1]; ?></h3>
-                    <h3 class="tituloFactura">Detalles de la facturacion</h3>
-                    <table class="tablaFacturas">
-                        <tr>
-                            <th>Imagen</th>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Unidades</th>
-                        </tr>
-                        <?php
+    <div class="contenedorGeneral" id="contenedorGeneral">
+        <section class="mostrarDatosFacturas">
+            <div class="cabeceraFacturacion">
+                <h3 class="tituloCabeceraFactura">Facturacion </h3>
+            </div>
+            <h3>Enviado a
+                <?php echo $_SESSION["usuarioLogin"] . " en el dia " .  $decode[$_SESSION["idUsuario"]][0] . " / " . $decode[$_SESSION["idUsuario"]][1]; ?>
+            </h3>
+            <h3 class="tituloFactura">Detalles de la facturacion</h3>
+            <table class="tablaFacturas">
+                <tr>
+                    <th>Imagen</th>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Unidades</th>
+                </tr>
+                <?php
                         $total = 0;
                         foreach ($decode as $key => $value) {
                             foreach ($value[2] as $key2 => $value2) {
@@ -142,10 +146,10 @@ ob_start();
                             }
                         }
                         ?>
-                    </table>
-                    <h3>Total a pagar <?php echo $total; ?>€</h3>
-                </section>
-            </div>
+            </table>
+            <h3>Total a pagar <?php echo $total; ?>€</h3>
+        </section>
+    </div>
     <?php
         } else {
             header("Location: index.php");
@@ -156,6 +160,7 @@ ob_start();
     cerrarConexion();
     ?>
 </body>
+
 </html>
 <?php
 $html = ob_get_clean();
