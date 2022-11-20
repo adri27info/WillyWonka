@@ -39,6 +39,6 @@ To run this project, we need the following steps:
 
 - Once inside the phpmyadmin database manager, you have to click the import option. You must select the sql file, which is located in the bbdd folder of this project, which is the following: https://github.com/adri27info/WillyWonka/blob/master/bbdd/sql/willywonka.sql
 
-- Once the database is imported through the sql file, we go to the project path, which will be found in the path: http://localhost/WillyWonka/index.php
+- Once the database is imported through the sql file, we go to the htdocs folder and create the apps/php/ folder and put the WillyWonka project inside the php folder, so that everything works. Once this is done, we put http://localhost/apps/php/WillyWonka in the browser and we will see that the application will execute correctly.
 
 - Finally we will have to access through the default user that I have left in the form.
